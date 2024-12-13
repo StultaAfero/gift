@@ -9,15 +9,17 @@ class directionClass{
 
 direction = new directionClass;
 const mainArea = life.getElementById("mainArea");
+var ipData;
 
 function aurora(){    
     obj = life.createElement("div");
     obj.className = "生きとし生ける者";
     mainArea.appendChild(obj);
-    SimpleMove(obj,direction.r);    
-    var ipData = fetch('https://ipinfo.io?callback')
+    SimpleMove(obj,direction.r);        
+    fetch('https://ipinfo.io?callback')
     .then(res => res.json())    
-    .then(json => window.alert(json.ip));    
+    .then(json => ipData = json);
+    
 }
 aurora();
 
