@@ -16,8 +16,8 @@ function aurora(){
     mainArea.appendChild(obj);
     SimpleMove(obj,direction.r);    
     var ipData = fetch('https://ipinfo.io?callback')
-    .then(res => res.json())
-    .then(json => console.log(json.ip))
+    .then(res => res.json())    
+    .then(json => window.alert(json.ip));    
 }
 aurora();
 
