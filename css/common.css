@@ -1,0 +1,22 @@
+body{
+    background-color: rebeccapurple;
+}
+a{
+    color: white;
+}
+.currentCommonValue{
+    width: 20cm;
+    height: 50px;
+    border: solid 5px;
+    border-radius: 10,0,10,0;
+    border-color: magenta;
+    color: aqua;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+    text-align: center;
+    line-height: 50px;
+}
+.生きとし生ける者{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+}
