@@ -19,6 +19,7 @@ function aurora(){
     fetch('https://ipinfo.io?callback')
     .then(res => res.json())    
     .then(json => ipData = json);
+    console.log(window.ga && window.ga.getAll()[0].get('pageview'));
     
 }
 aurora();
