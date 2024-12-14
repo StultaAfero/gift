@@ -16,7 +16,18 @@ function aurora(){
     obj.className = "生きとし生ける者";
     mainArea.appendChild(obj);
     SimpleMove(obj,direction.r);        
-    
+    hasVisited = localStorage.getItem("key");
+    if (!hasVisited) {        
+        fetch('https://api.countapi.xyz/hit/example-user/my-site-site-html')
+            .then(response => response.json())
+            .then(data => console.log(data.value));
+            
+        localStorage.setItem("key", 'true');
+    } else {        
+        fetch('https://api.countapi.xyz/get/StultaAfero.gift.site.html')
+            .then(response => response.json())
+            .then(data => console.log(data.value));
+    }
     
 }
 aurora();
