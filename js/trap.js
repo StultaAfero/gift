@@ -15,21 +15,23 @@ function aurora(){
     obj = life.createElement("div");
     obj.className = "生きとし生ける者";
     mainArea.appendChild(obj);
-    SimpleMove(obj,direction.r);        
-    hasVisited = localStorage.getItem("key");
-    if (!hasVisited) {        
-        fetch('https://api.countapi.xyz/hit/example-user/my-site-site-html')
-            .then(response => response.json())
-            .then(data => console.log(data.value));
-            
-        localStorage.setItem("key", 'true');
-    } else {        
-        fetch('https://api.countapi.xyz/get/StultaAfero.gift.site.html')
-            .then(response => response.json())
-            .then(data => console.log(data.value));
-    }
-    
+    SimpleMove(obj,direction.r);                
 }
+var key = 'key'
+var action = 'upvoteProduct'
+var namespace = 'StultaAfero.gift.site'
+var options = { startNumber: 300, behavior: 'vote' } //see options list
+
+counterApi.read(key, action, namespace, options, function(err, res){
+alert('Current number of votes for this: '+ res.value);
+//do something ...
+})
+
+//increase a counter
+counterApi.increment(key, action, namespace, options, function(err, res){
+alert('New upvote cout is now '+ res.value);
+//do something ...
+})
 aurora();
 
 function SimpleMove(element,direction,speed){
