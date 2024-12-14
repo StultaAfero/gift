@@ -6,6 +6,7 @@ html{
     margin: 0;    
 }
 body{
+    font-family: "Segoe UI";    
     margin: 0;
 }
 a{
@@ -44,5 +45,8 @@ main{
 .生きとし生ける者{
     width: 100px;
     height: 100px;
+    top: 0px;
+    left: 0px;
+    position: relative;
     background-color: blueviolet;
 }

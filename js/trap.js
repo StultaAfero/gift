@@ -7,52 +7,66 @@ class directionClass{
     b = "bottom";
 }
 
-direction = new directionClass;
+const globalDirection = new directionClass;
 const mainArea = life.getElementById("mainArea");
 var ipData;
 
-window.onload = setTimeout(aurora,1000);
+onload = aurora();
 function aurora(){    
     obj = life.createElement("div");
     obj.className = "生きとし生ける者";
     mainArea.appendChild(obj);
-    SimpleMove(obj,direction.r);                
+    SimpleMove(obj,globalDirection.r,40,800,10);                
+    
+    loadVisitorCount();
+}
+async function loadVisitorCount() {
+    // counterApiが利用可能になるまで待つ
+    await new Promise(resolve => {
+        if (typeof counterApi != "undefined") {
+            resolve();
+        } else {
+            setTimeout(resolve, 100);
+        }
+    });
+
     var key = 'key'
     var action = 'upvoteProduct'
     var namespace = 'StultaAfero.gift.site'
     var options = { startNumber: 0, behavior: 'vote' } //see options list
     
     counterApi.read(key, action, namespace, options, function(err, res){
-    alert('Current number of votes for this: '+ res.value);
-    //do something ...
+        console.log('Current number of votes for this: '+ res.value);
+        //do something ...
     })
     
     //increase a counter
     counterApi.increment(key, action, namespace, options, function(err, res){
-    alert('New upvote cout is now '+ res.value);
-    //do something ...
+        console.log('New upvote cout is now '+ res.value);
+        //do something ...
     })
-    
 }
 
-function SimpleMove(element,direction,speed){
-    switch(direction){
-        case direction.r:
-
-            break;
-        case direction.l:
-
-            break;
-        case direction.t:
-
-            break;
-        case direction.b:
-
-            break;
-
-            
-            // //localStorage.setItem("key",ipData);
-            // console.log(ipData);
-            
+async function SimpleMove(element,direction,step,distance,speed){
+     
+    let count = distance / step;    
+    if(direction == globalDirection.l || direction == globalDirection.b )
+        step = -step;    
+    for (let i = 0; i < count; i++) {
+        console.log("move now" + direction);
+        await new Promise(resolve => setTimeout(resolve, speed));   
+        switch(direction){
+            case globalDirection.r:
+            case globalDirection.l:                
+                element.style.left = (parseInt(getComputedStyle(element).left) || 0) + step + 'px';                
+                break;            
+            case globalDirection.t:
+            case globalDirection.b:                
+                element.style.top = (parseInt(getComputedStyle(element).top) || 0) + step + 'px';                
+                break;
+            default:
+                console.log("デフォルトになっちゃたる");
+                break;
+        }
     }
 }
