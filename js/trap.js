@@ -16,10 +16,7 @@ function aurora(){
     obj.className = "生きとし生ける者";
     mainArea.appendChild(obj);
     SimpleMove(obj,direction.r);        
-    fetch('https://ipinfo.io?callback')
-    .then(res => res.json())    
-    .then(json => ipData = json);
-    console.log(window.ga && window.ga.getAll()[0].get('pageview'));
+    
     
 }
 aurora();
