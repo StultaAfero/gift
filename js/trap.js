@@ -20,6 +20,9 @@ function aurora(){
     
     loadVisitorCount();
 }
+function InitialProcessing(){
+    
+}
 async function loadVisitorCount() {
     // counterApiが利用可能になるまで待つ
     await new Promise(resolve => {

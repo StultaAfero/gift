@@ -8,11 +8,15 @@ html{
 body{
     font-family: "Segoe UI";    
     margin: 0;
+    height: 20000px;
 }
 a{
     color: white;
 }
 header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -28,6 +32,21 @@ main{
     margin-top: var(--headerHeight);
     background-color: rebeccapurple;
 }
+header a{
+    text-align: center;
+    width: 160px;
+    color: red;
+    text-shadow: 10% blue;
+    text-decoration: none;
+    -webkit-text-stroke: 0.6px black;
+    /* background-color: black;
+    border: solid 1px red;
+    border-radius: 10%; */
+}
+header a:hover{
+    scale: 1.2;
+    color: cyan;
+}
 .currentCommonValue{
     width: 20cm;
     height: 50px;
@@ -40,7 +59,8 @@ main{
     line-height: 50px;
 }
 .commonHeader{
-    height: 100%;
+    height: var(--headerHeight);
+    line-height: var(--headerHeight);
 }
 .生きとし生ける者{
     width: 100px;
